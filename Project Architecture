@@ -1,0 +1,15 @@
+## Project Architecture
+
+The application follows a layered architecture:
+
+Controller Layer  
+Handles HTTP requests and responses.
+
+Service Layer  
+Contains business logic.
+
+Repository Layer  
+Handles database operations using Spring Data JPA.
+
+Entity Layer  
+Represents database tables as Java classes.
