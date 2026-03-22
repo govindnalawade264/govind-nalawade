@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:fragment="head-styles">
-	
+<head>
+	<head th:fragment="head-styles">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${pageTitle != null ? pageTitle + ' - EMS' : 'Employee Management System'}">EMS</title>
@@ -193,12 +193,13 @@
             <i class="fas fa-plus-circle"></i> Add Department
         </a>
 
+		<div class="sidebar-section mt-2">Account</div>
+
 		<form th:action="@{/logout}" method="post">
-		    <button type="submit" class="nav-link border-0 bg-transparent d-flex align-items-center gap-2">
+		    <button type="submit" class="nav-link d-flex align-items-center gap-2 border-0 bg-transparent w-100 text-start">
 		        <i class="fas fa-sign-out-alt"></i> Logout
 		    </button>
 		</form>
-        
     </nav>
 </div>
 
