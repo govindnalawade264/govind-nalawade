@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Employee Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #1a1f36 0%, #2d3561 50%, #1a1f36 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px 45px;
+            width: 420px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+        .brand-icon {
+            width: 70px; height: 70px;
+            background: linear-gradient(135deg, #5b8dee, #2d3561);
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(91,141,238,0.4);
+        }
+        h4 { font-weight: 700; color: #1a1f36; }
+        .text-muted-sm { color: #6b7280; font-size: 0.88rem; }
+        .form-label { font-weight: 500; font-size: 0.88rem; color: #374151; }
+        .form-control {
+            border-radius: 10px;
+            border: 1.5px solid #e5e7eb;
+            padding: 12px 15px;
+            font-size: 0.92rem;
+        }
+        .form-control:focus {
+            border-color: #5b8dee;
+            box-shadow: 0 0 0 3px rgba(91,141,238,0.15);
+        }
+        .input-group-text {
+            border-radius: 10px 0 0 10px;
+            background: #f9fafb;
+            border: 1.5px solid #e5e7eb;
+            color: #6b7280;
+        }
+        .input-group .form-control { border-radius: 0 10px 10px 0; }
+        .btn-login {
+            background: linear-gradient(135deg, #5b8dee, #2d3561);
+            border: none;
+            border-radius: 10px;
+            padding: 13px;
+            font-weight: 600;
+            font-size: 1rem;
+            width: 100%;
+            color: #fff;
+            transition: all 0.2s;
+        }
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(91,141,238,0.4);
+        }
+        .alert { border-radius: 10px; border: none; font-size: 0.88rem; }
+        .demo-creds {
+            background: #f0f9ff;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 0.82rem;
+            color: #0369a1;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-card">
+    <div class="brand-icon"><i class="fas fa-users"></i></div>
+    <h4 class="text-center mb-1">Welcome Back</h4>
+    <p class="text-center text-muted-sm mb-4">Employee Management System</p>
+
+    <!-- Alerts -->
+    <div th:if="${param.error}" class="alert alert-danger mb-3">
+        <i class="fas fa-exclamation-circle me-2"></i>Invalid username or password!
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success mb-3">
+        <i class="fas fa-check-circle me-2"></i>You have been logged out successfully.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" name="username" class="form-control"
+                       placeholder="Enter username" required autofocus>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="form-label">Password</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" name="password" class="form-control"
+                       placeholder="Enter password" required>
+            </div>
+        </div>
+        <button type="submit" class="btn-login">
+            <i class="fas fa-sign-in-alt me-2"></i>Sign In
+        </button>
+    </form>
+
+    <div class="demo-creds text-center mt-3">
+        <strong>Demo Credentials:</strong> admin / admin123
+    </div>
+</div>
+</body>
+</html>
